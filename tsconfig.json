@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "outDir": "lib",
+    "removeComments": false,
+    "module": "CommonJS",
+    "rootDir": "./src",
+    "target": "ES5",
+    "strict": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src"],
+  "exclude": ["lib", "node_modules", "**/__tests__/*"]
+}
