@@ -2,11 +2,87 @@
 
 Some handy utilities that could come in hand.
 
-## Getting Started
+## Develop instructions
 
-1. `npm install`
+### 1. Start working on a new feature
 
-## Build and Publish
+Make sure you have pulled the latest `master` branch and installed all the dependencies.
 
-1. `npm run generate`
-2. `npm run push`
+1. `git checkout -b feature/XXXXX`
+2. Work in the `src` folder
+
+### 2. Preparing build
+
+_Note: Try to only do one commit on each feature branch._
+
+#### Build
+
+Create a build before commiting your changes.
+
+```bash
+npm run build
+```
+
+This will save the build to the `lib` folder.
+
+#### Test the changes
+
+You can now test the changes. How you would do this depends on what type of changes you are developing. One way would be
+to linking the local package to a project on your computer and use it.
+
+<https://docs.npmjs.com/cli/link.html>
+
+### 3. Commit changes
+
+When you are ready to commit your changes, run the following command:
+
+```bash
+npm run commit
+```
+
+This will use [Commitizen](http://commitizen.github.io/cz-cli/) to create the commit.
+
+If you want someone to review your changes, please create a pull request to the `master` branch. Otherwise you can merge
+your changes directly to `master` locally.
+
+```bash
+git checkout master
+git merge FEATURE/XXXXX
+```
+
+### 4. Creating a release
+
+#### Preparations
+
+```bash
+npm run release
+```
+
+This will bump versions based on commit types, add commit descriptions to CHANGELOG.md, and create git tags according to
+the current version).
+
+#### Push source code
+
+Push changes and git tags to master branch using:
+
+```bash
+git push --follow-tags origin master
+```
+
+Now is the last moment to be able to review any changes before publishing the package.
+
+#### Publish release
+
+```bash
+npm publish
+```
+
+This will publish the code to the NPM Artifact Feed in DevOps. The feed is defined in `.npmrc`.
+
+## References
+
+<https://medium.com/tunaiku-tech/automate-javascript-project-versioning-with-commitizen-and-standard-version-6a967afae7>
+
+<https://docs.npmjs.com/cli/link.html>
+
+<http://commitizen.github.io/cz-cli/>
