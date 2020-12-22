@@ -1,6 +1,6 @@
 {
   "name": "@cdab/utils",
-  "keywords": ["utils", "typescript", "scroll"]
+  "keywords": ["utils", "typescript", "scroll"],
   "version": "0.1.0",
   "description": "Some utils that could come in handy",
   "homepage": "https://github.com/congenialdata/cdab-utils#readme"
