@@ -1,0 +1,31 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    name: Build, lint, and test
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
