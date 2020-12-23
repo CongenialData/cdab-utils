@@ -57,7 +57,15 @@ This will save the build to the `lib` folder.
 You can now test the changes. How you would do this depends on what type of changes you are developing. One way would be
 to linking the local package to a project on your computer and use it.
 
-<https://docs.npmjs.com/cli/link.html>
+1. Create a global symlink with `npm link`
+1. Use a global symlink in your application with `npm link @cdab/utils`
+
+```bash
+cd ~/cdab-utils
+npm link
+cd ~/your-project
+npm link @cdab/utils
+```
 
 ### 3. Commit changes
 
