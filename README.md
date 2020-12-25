@@ -2,11 +2,38 @@
 
 Some handy utilities that could come in hand.
 
+## Getting started
+
+1. Clone your forked repository to your computer
+
+```bash
+git clone git@github.com:<your-github-username>/cdab-utils.git
+```
+
+2. Keep your fork in sync to avoid merge conflics
+
+```bash
+git remote add upstream git@github.com:CongenialData/cdab-utils.git
+git pull upstream main
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Validate and build the project
+
+```bash
+npm run validate
+```
+
 ## Develop instructions
 
 ### 1. Start working on a new feature
 
-Make sure you have pulled the latest `master` branch and installed all the dependencies.
+Make sure you have pulled the latest `main` branch and installed all the dependencies.
 
 1. `git checkout -b feature/XXXXX`
 2. Work in the `src` folder
@@ -17,10 +44,10 @@ _Note: Try to only do one commit on each feature branch._
 
 #### Build
 
-Create a build before commiting your changes.
+Validate your changes and create the build before commiting.
 
 ```bash
-npm run build
+npm run validate
 ```
 
 This will save the build to the `lib` folder.
@@ -30,7 +57,15 @@ This will save the build to the `lib` folder.
 You can now test the changes. How you would do this depends on what type of changes you are developing. One way would be
 to linking the local package to a project on your computer and use it.
 
-<https://docs.npmjs.com/cli/link.html>
+1. Create a global symlink with `npm link`
+1. Use a global symlink in your application with `npm link @cdab/utils`
+
+```bash
+cd ~/cdab-utils
+npm link
+cd ~/your-project
+npm link @cdab/utils
+```
 
 ### 3. Commit changes
 
@@ -42,11 +77,11 @@ npm run commit
 
 This will use [Commitizen](http://commitizen.github.io/cz-cli/) to create the commit.
 
-If you want someone to review your changes, please create a pull request to the `master` branch. Otherwise you can merge
-your changes directly to `master` locally.
+If you want someone to review your changes, please create a pull request to the `main` branch. Otherwise you can merge
+your changes directly to `main` locally.
 
 ```bash
-git checkout master
+git checkout main
 git merge FEATURE/XXXXX
 ```
 
@@ -63,10 +98,10 @@ the current version).
 
 #### Push source code
 
-Push changes and git tags to master branch using:
+Push changes and git tags to main branch using:
 
 ```bash
-git push --follow-tags origin master
+git push --follow-tags origin main
 ```
 
 Now is the last moment to be able to review any changes before publishing the package.
